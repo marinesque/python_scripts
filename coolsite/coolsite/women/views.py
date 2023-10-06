@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-
+from .models import *
 
 # Create your views here.
 
 menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
 def index(request): #HttpRequest
     #return HttpResponse("Страница приложения women.")
-    return render(request, 'women/index.html', {'menu': menu, 'title': 'Главная страница'}) #Чтобы передать на страницу переменные, передаем в виде словаря
+    posts = Women.objects.all() #фреймворк сам достает данные
+    return render(request, 'women/index.html', {'posts': posts, 'menu': menu, 'title': 'Главная страница'}) #Чтобы передать на страницу переменные, передаем в виде словаря
 
 def about(request): #HttpRequest
     return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
