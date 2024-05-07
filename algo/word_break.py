@@ -49,7 +49,7 @@ class Solution:
 
         while queue:
             word = queue.popleft()
-
+            print(f"word: {word}")
             if word in visited:
                 continue
 
@@ -60,7 +60,9 @@ class Solution:
                 visited.add(word)
 
                 for start_word in wordDict:
+                    print(f"start_word: {start_word}")
                     if word.startswith(start_word):
+                        print(f"word[len(start_word):]: {word[len(start_word):]}")
                         queue.append(word[len(start_word):])
 
         return False
