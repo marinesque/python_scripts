@@ -44,6 +44,7 @@ class Solution(object):
         used = {}
 
         for i, x in enumerate(nums):
+            print(f"i: {i}, x: {x}")
             diff = target - x
             if diff in used:
                 return [used[diff], i]
@@ -51,7 +52,7 @@ class Solution(object):
                 used[x] = i
         return
 
-my_nums = [2,7,11,15]
+my_nums = [2,11,15,7]
 my_target = 9
 my_result = Solution.twoSum(my_nums, my_target)
 print(my_result)

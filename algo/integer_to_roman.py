@@ -46,6 +46,7 @@ class Solution:
         print(symList)
         result = ""
         for symbol, value in symList:
+            print(f"num: {num}")
             if num // value:
                 count = num // value
                 result += (symbol * count)
